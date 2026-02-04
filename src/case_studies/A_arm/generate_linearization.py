@@ -1,5 +1,5 @@
 # %%
-from generate_state_variable_form import *
+from case_studies.A_arm.generate_state_variable_form import *
 
 # %%
 ############################################################

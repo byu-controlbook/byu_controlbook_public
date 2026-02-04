@@ -3,7 +3,7 @@
 from case_studies.common import sym_utils as su
 
 # local imports (from this folder)
-from generate_KE import *
+from case_studies.B_pendulum.generate_KE import *
 
 # This makes it so printing from su only happens when running this file directly
 su.enable_printing(__name__ == "__main__")
@@ -74,7 +74,7 @@ display(Math(vlatex(thetadd_eom)))
 # OK, now we can get the state variable form of the equations of motion.
 
 # %%
-import params as P
+import case_studies.B_pendulum.params as P
 import numpy as np
 
 # defining fixed parameters that are not states or inputs (like g, ell, m1, m2, b)
@@ -97,18 +97,6 @@ ctrl_input = sp.Matrix([F])
 # defining the function that will be called to get the derivatives of the states
 state_dot = sp.Matrix([zd, thetad, zdd_eom, thetadd_eom])
 
-
-# %%
-import numpy as np
-
-# converting the function to a callable function that uses numpy to evaluate and
-# return a list of state derivatives
-eom = sp.lambdify([state, ctrl_input, m1, m2, ell, b], state_dot, "numpy")
-
-# calling the function as a test to see if it works:
-cur_state = np.array([0, 0, 0, 0])
-cur_input = np.array([1])
-print("x_dot = ", eom(cur_state, cur_input, P.m1, P.m2, P.ell, P.b))
 
 
 # %% [markdown]

@@ -1,9 +1,7 @@
 # %%
 # local (controlbook)
 from case_studies.common import sym_utils as su
-
-# local imports (from this folder)
-from generate_KE import *
+from case_studies.A_arm.generate_KE import *
 
 # %%[markdown]
 # The code imported from above shows how we defined q, q_dot, and necessary system parameters.
@@ -68,7 +66,7 @@ display(Math(vlatex(thetadd_eom)))
 # OK, now we can get the state variable form of the equations of motion.
 
 # %%
-import params as P
+import case_studies.A_arm.params as P
 import numpy as np
 
 # defining fixed parameters that are not states or inputs (like g, ell, m, b)
@@ -95,8 +93,6 @@ state_dot = sp.Matrix([thetad, thetadd_eom])
 
 
 # %%
-import numpy as np
-
 # converting the function to a callable function that uses numpy to evaluate and
 # return a list of state derivatives
 eom = sp.lambdify([state, ctrl_input, m, ell, b], state_dot, "numpy")
