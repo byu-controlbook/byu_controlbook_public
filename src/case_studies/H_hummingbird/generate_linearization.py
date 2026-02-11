@@ -82,11 +82,6 @@ F_eq, T_eq = sp.symbols("F_e tau_e")
 
 # TODO add control inputs F_e and T_e (replace with equilibrium symbols) to eq_subs
 # HINT: eq_subs[F] = F_eq, etc. 
-# BEGIN SOLUTION
-# Add control inputs (replace with equilibrium symbols)
-eq_subs[F] = F_eq
-eq_subs[T] = T_eq
-# END SOLUTION
 
 # TODO Apply all substitutions to the EOM
 # eom_eq = None  # TODO: replace with EOM after substitutions
